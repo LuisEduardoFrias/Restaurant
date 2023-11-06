@@ -1,21 +1,16 @@
+//
 import { dajb } from "daj";
 
 export default class Plate extends dajb {
- img: string;
- name: string;
- description: string;
- score: number;
- constructor(
-  key: string,
-  img: string,
-  name: string,
-  description: string,
-  score: number
- ) {
-  super(true);
-  this.img = img;
-  this.name = name;
-  this.description = description;
-  this.score = score;
- }
+  score: number;
+  constructor(img: string, name: string, price: number) {
+    super();
+    this.img = img;
+    this.name = name;
+    this.price = price;
+  }
+
+  public increaseScore(): void {
+    this.score += 1;
+  }
 }
