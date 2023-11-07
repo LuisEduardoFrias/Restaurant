@@ -1,9 +1,13 @@
 import CatalogController from "ct/catalog_controller";
 import D3Img, { IData } from "cp/3d_img/3d_img";
 import Notification from "./notification";
-import Plate from "m/plate";
+import Icon from "cp/icon/icon";
 import Link from "next/link";
 import "./home.css";
+import Add from "ct/Add";
+import Catalog from "m/catalog";
+import Category from "m/category";
+import Plate from "m/plate";
 
 function adacterRecomendations(re: Plate[]): IData[] {
   return re.map(e => {
@@ -12,32 +16,34 @@ function adacterRecomendations(re: Plate[]): IData[] {
 }
 
 export default async function Home() {
+  const add = new Add();
+  // add.postCatalog();
+
   const catalogCT = new CatalogController();
 
-  const { data: catalogs, error: errorCat } = await catalogCT.get();
+  const { catalogs, error: errorCat } = await catalogCT.get();
 
-  const { data: recomendations, error: errorRec } =
-    await catalogCT.getMostRequestedDishes();
+  const { plates, error: errorRec } = await catalogCT.getMostRequestedDishes();
+
+  // console.log("plates");
+  //   console.log(plates);
 
   return (
     <main>
       <br />
-      {errorRec && (
-        <D3Img
-          data={adacterRecomendations(recomendations)}
-          error={!!!errorRec}
-        />
-      )}
+      {/*errorRec && (
+        <D3Img data={adacterRecomendations(plates)} error={!!!errorRec} />
+      ) */ }
 
       <br />
 
-      <Notification show={!!!errorCat} />
+      <Notification show={!!errorCat} />
 
       <h2 className='title-catalogo'>Catalogo</h2>
 
       <br />
       <div className='catalogo'>
-        {!errorCat ??
+        {/* catalogs ??
           catalogs?.map((e, i) => (
             <Link
               key={i}
@@ -47,7 +53,7 @@ export default async function Home() {
               <img src={e.img} alt='Imagen seleccionada' />
               <label>{e.name}</label>
             </Link>
-          ))}
+          )) */}
       </div>
       <br />
       <div
@@ -60,7 +66,7 @@ export default async function Home() {
       >
         <h2>Mas solicitatas</h2>
         images plates
-        {!errorCat ??
+        {/* catalogs ??
           catalogs?.map((e, i) => (
             <div key={i} className='p-5 flex-col'>
               <img
@@ -77,8 +83,11 @@ export default async function Home() {
               <label>{e.name}</label>
               <br />
             </div>
-          ))}
+          )) */}
       </div>
+      <button className='op-menu'>
+        <Icon>edit</Icon>
+      </button>
     </main>
   );
 }

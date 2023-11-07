@@ -38,11 +38,8 @@ export default function RootLayout({
             />
           </Link>
           <div>
-            <Link href='/add_plate' className='op-menu'>
-              <Icon>add_circle</Icon> Plate
-            </Link>
-            <Link href='/add_menu' className='op-menu'>
-              <Icon>add_circle</Icon> Option
+            <Link href='/setting' className='op-menu'>
+              <Icon>setting</Icon> setting
             </Link>
           </div>
           <Link href='/bill' className='op-menu'>

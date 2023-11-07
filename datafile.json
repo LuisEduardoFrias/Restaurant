@@ -1,0 +1,101 @@
+{
+  "Catalog": [
+    {
+      "key": "9405e702-bac8-43b1-8f24-c23bb67dd554",
+      "category": [
+        {
+          "key": "8787a089-2898-4a1a-b1a8-2c5162435626",
+          "plates": [
+            {
+              "key": "f6755820-11d9-4f2c-baca-648db137d0ba",
+              "img": "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+              "name": "plato 1",
+              "price": 200.45
+            },
+            {
+              "key": "71798108-1bc9-4a62-bc6a-e9b182ac54e7",
+              "img": "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+              "name": "plato 2",
+              "price": 180.95
+            }
+          ],
+          "name": "termino medio"
+        },
+        {
+          "key": "60a7b4c1-c90b-425b-9c46-5c41ad9271f1",
+          "plates": [
+            {
+              "key": "bfd54082-e225-4af9-9086-50a439f87016",
+              "img": "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+              "name": "plato 1",
+              "price": 200.45
+            },
+            {
+              "key": "3ac648d7-d760-4d12-aa28-0a679d4c72f4",
+              "img": "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+              "name": "plato 2",
+              "price": 180.95
+            },
+            {
+              "key": "4a19cd64-f00e-4344-914c-e04039d78480",
+              "img": "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+              "name": "plato 3",
+              "price": 180.95
+            }
+          ],
+          "name": "pescado"
+        },
+        {
+          "key": "ccbcbc0d-5edc-40c1-907e-b75c54effed2",
+          "plates": [
+            {
+              "key": "d532f0e8-735d-4d56-bfa3-bb247d1484f5",
+              "img": "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+              "name": "plato 1",
+              "price": 200.45
+            },
+            {
+              "key": "739bf6bb-7e68-4b60-973c-7d85edf48aff",
+              "img": "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+              "name": "plato 2",
+              "price": 180.95
+            },
+            {
+              "key": "495a9ded-5362-44a7-8e72-4de69d7fb1c4",
+              "img": "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+              "name": "plato 3",
+              "price": 180.95
+            }
+          ],
+          "name": "ensaladas"
+        }
+      ],
+      "name": "Acompañamientos",
+      "img": "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg"
+    },
+    {
+      "key": "4bdff694-fefd-498f-bac6-5cbea890fe5f",
+      "category": [],
+      "name": "Bebidas",
+      "img": "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg"
+    },
+    {
+      "key": "7e64ca99-f0a0-454e-b815-e81aa11f3aab",
+      "category": [],
+      "name": "Entradas",
+      "img": "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg"
+    },
+    {
+      "key": "13d1af6a-cd5f-48d9-9486-7940247a0fec",
+      "category": [],
+      "name": "Platos principales",
+      "img": "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg"
+    },
+    {
+      "key": "a274968b-85f8-407e-a01e-bb34afd70135",
+      "category": [],
+      "name": "Postre",
+      "img": "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg"
+    }
+  ]
+}

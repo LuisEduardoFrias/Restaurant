@@ -1,5 +1,6 @@
 import PlatesController from "ct/plates_controller.ts";
 import BackButton from "cp//back_button/back_button";
+import Icon from "cp/icon/icon";
 
 export default function MenuOption(props) {
   const plates = new PlatesController();
@@ -23,6 +24,9 @@ export default function MenuOption(props) {
       <h1>Entradas</h1>
       <h1>Platos principales</h1>
       <h1>Postre</h1>
+            <button className='op-menu'>
+        <Icon>edit</Icon>
+      </button>
     </>
   );
 }

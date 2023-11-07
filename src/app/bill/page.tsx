@@ -10,9 +10,10 @@ export default async function Bill() {
     bill: Bill;
     error: string;
   };
-
-  if (error) {
-  }
+  console.log("bill");
+  console.log(bill);
+  console.log("error");
+  console.log(error);
 
   let total: number = 0.0;
 

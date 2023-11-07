@@ -13,8 +13,10 @@ import System from "m/system";
 export class CatalogDA {
   async get(): { catalogs: Catalog[]; error: string | null } {
     const { data, error } = await daj.getAsync(Catalog.getInstance());
+
     if (error !== null || data === null || data === undefined)
       return { catalogs: data, error };
+
     return {
       catalogs: data.map(e => {
         e.category = {};
@@ -40,17 +42,27 @@ export class CatalogDA {
   }
 
   async getMostRequestedDishes(): { products: Plate[]; error: string | null } {
-    const { data, error } = await this.getCategory();
+    console.log("data access");
+    const { categorys, error } = await this.getCategory();
 
-    if (error !== null || data === null || data === undefined)
-      return { data, error };
+    if (error !== null || categorys === null || categorys === undefined)
+      return { plates: null, error };
 
-    const plates: (Product | Plate)[] = data.map(e => e.plates) as (
+    console.log("categorys ");
+    console.log(categorys);
+
+    const plates: (Product | Plate)[] = categorys.map(e => e.plates) as (
       | Product
       | Plate
     )[];
 
-    return { products: getTopProducts(plates.map(e => "score" in e)), error };
+    console.log("plates ");
+    console.log(plates);
+
+    console.log("plates 2");
+    console.log(plates.map(e => "score" in e));
+
+    return { plates: getTopProducts(plates.map(e => "score" in e)), error };
   }
 
   private getTopProducts(products: Plate[]): Product[] {
@@ -77,7 +89,8 @@ export class CatalogDA {
 export class BillDA {
   async get(): { bills: Bill[]; error: string | null } {
     const { data, error } = await daj.getAsync(Bill.getInstance());
-
+    console.log("desde data access data: " + data);
+    console.log("desde data access error: " + error);
     return { bills: data, error };
   }
   async post(obj: Bill) {
