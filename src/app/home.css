@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   gap: 10px;
   flex-shrink: 3;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 

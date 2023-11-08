@@ -69,6 +69,22 @@ header div {
   gap: 5px;
 }
 
+.edit-btn {
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: var(--Second);
+  border-left-color: var(--Second);
+  border-right-color: var(--Fourth);
+  border-bottom-color: var(--Fourth);
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 5px 5px;
+  height: 40px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
 .op-menu {
   display: flex;
   justify-content: center;

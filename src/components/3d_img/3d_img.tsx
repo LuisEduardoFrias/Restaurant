@@ -25,7 +25,7 @@ export default function D3Img({ error, data }: ID3Img) {
   return (
     <div className='body-3Dimg'>
       <div className='img-container'>
-        {!error ? (
+        {true ? (
           <>
             {state ? (
               state?.slice(0, 4)?.map((e, i) => (

@@ -12,12 +12,12 @@ import Plate from "m/plate";
 function adacterRecomendations(re: Plate[]): IData[] {
   return re.map(e => {
     return { desc: e.name, img: e.img };
-  });
+  }) as Plate[];
 }
 
 export default async function Home() {
   const add = new Add();
-  // add.postCatalog();
+  //add.postCatalog();
 
   const catalogCT = new CatalogController();
 
@@ -25,15 +25,14 @@ export default async function Home() {
 
   const { plates, error: errorRec } = await catalogCT.getMostRequestedDishes();
 
-  // console.log("plates");
-  //   console.log(plates);
+  let adacterPlate = null;
+  if (!!plates) adacterPlate = adacterRecomendations(plates);
 
   return (
     <main>
       <br />
-      {/*errorRec && (
-        <D3Img data={adacterRecomendations(plates)} error={!!!errorRec} />
-      ) */ }
+      <br />
+      {!!plates && <D3Img data={adacterPlate} error={!!plates} />}
 
       <br />
 
@@ -43,49 +42,20 @@ export default async function Home() {
 
       <br />
       <div className='catalogo'>
-        {/* catalogs ??
-          catalogs?.map((e, i) => (
-            <Link
-              key={i}
-              href={`/menu_option?plateType=${e.name}`}
-              className='menu-option none-focus'
-            >
-              <img src={e.img} alt='Imagen seleccionada' />
-              <label>{e.name}</label>
-            </Link>
-          )) */}
+        {catalogs?.map((e, i) => (
+          <Link
+            key={i}
+            href={`/category?plateType=${e.name}`}
+            className='menu-option none-focus'
+          >
+            <img src={e.img} alt='Imagen seleccionada' />
+            <label>{e.name}</label>
+          </Link>
+        ))}
       </div>
       <br />
-      <div
-        style={{
-          display: "none",
-          heigth: "300px",
-          border: "1px solid red",
-          width: "100%",
-        }}
-      >
-        <h2>Mas solicitatas</h2>
-        images plates
-        {/* catalogs ??
-          catalogs?.map((e, i) => (
-            <div key={i} className='p-5 flex-col'>
-              <img
-                src={e.img}
-                alt='Imagen seleccionada'
-                style={{
-                  width: "120px",
-                  height: "100px",
-                  border: "1px solid red",
-                }}
-              />
 
-              <br />
-              <label>{e.name}</label>
-              <br />
-            </div>
-          )) */}
-      </div>
-      <button className='op-menu'>
+      <button className='edit-btn none-focus'>
         <Icon>edit</Icon>
       </button>
     </main>

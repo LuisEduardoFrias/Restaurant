@@ -39,7 +39,7 @@ export default function RootLayout({
           </Link>
           <div>
             <Link href='/setting' className='op-menu'>
-              <Icon>setting</Icon> setting
+              <Icon>settings</Icon> setting
             </Link>
           </div>
           <Link href='/bill' className='op-menu'>

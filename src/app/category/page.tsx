@@ -1,30 +1,29 @@
-import PlatesController from "ct/plates_controller.ts";
+import CatalogController from "ct/catalog_controller.ts";
 import BackButton from "cp//back_button/back_button";
 import Icon from "cp/icon/icon";
 
 export default function MenuOption(props) {
-  const plates = new PlatesController();
-   const res = plates.getByCatalogo("props.searchParams.plateType");
+  const catalog = new CatalogController();
+  const { categorys, error } = catalog.getCategoryByName(
+    props.searchParams.plateType
+  );
 
   return (
     <>
       <BackButton classCss='back' />
-      {res.data.map((e,i)=>{
-       return (          <Link
+      {categorys.map((e, i) => {
+        return (
+          <Link
             key={i}
             href={`/menu_option?plateType=${e.name}`}
             className='menu-option none-focus'
           >
             <label>{e.name}</label>
-               <label>{e.precio}</label>
-          </Link>)
+          </Link>
+        );
       })}
-      <h1>Acompañamientos</h1>
-      <h1>Bebidas</h1>
-      <h1>Entradas</h1>
-      <h1>Platos principales</h1>
-      <h1>Postre</h1>
-            <button className='op-menu'>
+
+      <button className='edit-btn none-focus'>
         <Icon>edit</Icon>
       </button>
     </>

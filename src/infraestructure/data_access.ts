@@ -19,7 +19,7 @@ export class CatalogDA {
 
     return {
       catalogs: data.map(e => {
-        e.category = {};
+        e.category = null;
         return e;
       }),
       error: null,
@@ -33,42 +33,68 @@ export class CatalogDA {
   }
 
   async getCategory(): { categorys: Category[]; error: string | null } {
-    const { data, error } = await daj.getAsync(Catalog.getInstance());
+    const { catalogs, error } = await this.getFull();
 
-    if (error !== null || data === null || data === undefined)
-      return { categorys: data, error };
+    if (error !== null || catalogs === null || catalogs === undefined)
+      return { categorys: catalogs, error };
 
-    return { categorys: data.map(e => e.category) as Category[], error: null };
+    let categorys: Category[] = [];
+
+    catalogs.forEach(catalog => {
+      catalog.categorys.forEach(cate => categorys.push(cate));
+    });
+
+    return {
+      categorys,
+      error: null,
+    };
   }
 
-  async getMostRequestedDishes(): { products: Plate[]; error: string | null } {
-    console.log("data access");
+  async getCategoryByName(name: string): {
+    categorys: Category[];
+    error: string | null;
+  } {
+    const { catalogs, error } = await this.getFull();
+
+    if (error !== null || catalogs === null || catalogs === undefined)
+      return { categorys: catalogs, error };
+
+    let categorys: Category[] = [];
+
+    catalogs.forEach(catalog => {
+      if (catalog.name === name) {
+        catalog.categorys.forEach(cate => categorys.push(cate));
+      }
+    });
+
+    return {
+      categorys,
+      error: null,
+    };
+  }
+
+  async getMostRequestedDishes(): { plates: Plate[]; error: string | null } {
     const { categorys, error } = await this.getCategory();
 
     if (error !== null || categorys === null || categorys === undefined)
-      return { plates: null, error };
+      return { plates: categorys, error };
 
-    console.log("categorys ");
-    console.log(categorys);
+    let plates: Plate[] = [];
 
-    const plates: (Product | Plate)[] = categorys.map(e => e.plates) as (
-      | Product
-      | Plate
-    )[];
+    categorys.forEach(category => {
+      category.plates.forEach(pla => plates.push(pla));
+    });
 
-    console.log("plates ");
-    console.log(plates);
-
-    console.log("plates 2");
-    console.log(plates.map(e => "score" in e));
-
-    return { plates: getTopProducts(plates.map(e => "score" in e)), error };
+    return {
+      plates: this.getTopProducts(plates.filter(e => "score" in e)),
+      error,
+    };
   }
 
   private getTopProducts(products: Plate[]): Product[] {
     const sortedProducts: Plate[] = products.sort((a, b) => b.score - a.score);
 
-    return sortedProducts.slice(0, 5);
+    return sortedProducts.slice(0, 4);
   }
 
   async post(obj: Catalog) {

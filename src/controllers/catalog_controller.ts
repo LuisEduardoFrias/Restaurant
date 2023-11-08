@@ -19,6 +19,10 @@ export default class CatalogController {
   async getCategory(): Category[] {
     return await this.CDA.getCategory();
   }
+  
+  async getCategoryByName(name: string): Category[] {
+    return await this.CDA.getCategoryByName(name);
+  }
 
   async getMostRequestedDishes(): Plate[] {
     return await this.CDA.getMostRequestedDishes();
