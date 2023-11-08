@@ -5,10 +5,41 @@ import Plate from "m/plate";
 import Product from "m/product";
 import Bill from "m/bill";
 import System from "m/system";
+import { SystemType } from "m/systemType";
 
 export default class Add {
   async postBill() {
-    return await daj.postAsync(obj);
+    const plate1 = new Plate(
+      "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+      "plato 1",
+      200.45,
+    );
+    plate1.increaseScore();
+    plate1.increaseScore();
+
+    const plate2 = new Plate(
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0dApJ5zMUcqKPUaatGGg7MtEHvmNfeLiqFw&usqp=CAU",
+      "plato 2",
+      180.95,
+    );
+    plate2.increaseScore();
+    plate2.increaseScore();
+    plate2.increaseScore();
+    plate2.increaseScore();
+
+    const product1 = new Product(
+      "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+      "product 1",
+      200.45,
+    );
+
+    const bill1 = new Bill(
+      [plate1, plate2, product1],
+      new System(SystemType.client, "mesa 001"),
+      false,
+    );
+
+    return await daj.postAsync(bill1);
   }
 
   async postCatalog() {

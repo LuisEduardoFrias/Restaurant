@@ -6,30 +6,18 @@ import BackButton from "cp//back_button/back_button";
 export default async function Bill() {
   const BC = new BillController();
 
-  const { bill, error } = (await BC.getInvoiceWithoutPaying("hhh")) as {
+  const { bill, error } = (await BC.getInvoiceWithoutPaying("mesa 001")) as {
     bill: Bill;
     error: string;
   };
-  console.log("bill");
-  console.log(bill);
-  console.log("error");
-  console.log(error);
-
-  let total: number = 0.0;
-
-  (() => {
-    bill &&
-      bill.products.map(e => {
-        total += e.price;
-      });
-  })();
 
   return (
     <>
       <BackButton classCss='back' />
       <h1>Facturacion</h1>
+      <h2>{bill.client.name}</h2>
 
-      <Notification show={!!!error} text={error} />
+      <Notification show={!!error} text={error} />
 
       <div>
         <div>
@@ -38,16 +26,22 @@ export default async function Bill() {
         </div>
 
         <div>
-          {bill ??
-            bill?.map((e, i) => (
-              <div>
-                <label>{e.product}</label>
+          {!!bill &&
+            bill.products.map((e, i) => (
+              <div key={i}>
+                <img
+                  src={e.img}
+                  alt='Imagen seleccionada'
+                  width='100'
+                  heigth='100'
+                />
+                <label>{e.name}</label>
                 <label>{e.price}</label>
               </div>
             ))}
           <div>
             <label>Total</label>
-            <label>{total}</label>
+            <label>{bill.total}</label>
           </div>
         </div>
       </div>

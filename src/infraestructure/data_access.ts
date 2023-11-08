@@ -115,8 +115,7 @@ export class CatalogDA {
 export class BillDA {
   async get(): { bills: Bill[]; error: string | null } {
     const { data, error } = await daj.getAsync(Bill.getInstance());
-    console.log("desde data access data: " + data);
-    console.log("desde data access error: " + error);
+
     return { bills: data, error };
   }
   async post(obj: Bill) {

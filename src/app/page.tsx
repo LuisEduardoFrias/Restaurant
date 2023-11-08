@@ -17,6 +17,7 @@ function adacterRecomendations(re: Plate[]): IData[] {
 
 export default async function Home() {
   const add = new Add();
+  //add.postBill();
   //add.postCatalog();
 
   const catalogCT = new CatalogController();

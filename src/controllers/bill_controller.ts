@@ -22,8 +22,17 @@ export default class BillController {
     if (bills === null || bills === undefined || error !== null)
       return { bill: bills, error };
 
+    let billfilter = null;
+    if (Array.isArray(bills)) {
+      billfilter = bills?.filter(
+        o => o.wasIfPaid === false && o.client.name === table,
+      );
+    } else {
+      billfilter = bills;
+    }
+    
     return {
-      bill: bills.filter(o => o.wasIfPaid === false && o.system.name === table),
+      bill: billfilter,
       error: null,
     };
   }
