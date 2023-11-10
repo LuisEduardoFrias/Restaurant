@@ -1,9 +1,11 @@
-import BillController from "ct/bill_controller.ts";
-import Bill from "m/bill";
-import Notification from "./notification";
 import BackButton from "cp//back_button/back_button";
+import BillController from "ct/bill_controller.ts";
+import Notification from "./notification";
+import Products from "./products";
+import Bill from "m/bill";
+import "./products.css";
 
-export default async function Bill() {
+export default async function Bills() {
   const BC = new BillController();
 
   const { bill, error } = (await BC.getInvoiceWithoutPaying("mesa 001")) as {
@@ -14,35 +16,21 @@ export default async function Bill() {
   return (
     <>
       <BackButton classCss='back' />
-      <h1>Facturacion</h1>
-      <h2>{bill.client.name}</h2>
+      <h1 className='bill-title'>Facturacion</h1>
 
       <Notification show={!!error} text={error} />
 
-      <div>
-        <div>
-          <label>producto</label>
-          <label>precio</label>
+      <div className='bill-container'>
+        <div className='bill-header'>
+          <label className='bill-col1'>producto</label>
+          <label className='bill-col2'>precio</label>
         </div>
-
-        <div>
-          {!!bill &&
-            bill.products.map((e, i) => (
-              <div key={i}>
-              { e?.img && <img
-                  src={e.img}
-                  alt='Imagen seleccionada'
-                  width='100'
-                  heigth='100'
-                />}
-                <label>{e.name}</label>
-                <label>{e.price}</label>
-              </div>
-            ))}
-          <div>
-            <label>Total</label>
-            <label>{bill.total}</label>
-          </div>
+        <div className='bill-body'>
+          <Products data={bill.products} />
+        </div>
+        <div className='bill-fooder'>
+          <label className='bill-foo1'>Total</label>
+          <label className='bill-foo2'>RD$ {bill.total}</label>
         </div>
       </div>
     </>
