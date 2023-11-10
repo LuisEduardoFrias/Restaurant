@@ -7,7 +7,6 @@ import "./3d_img.css";
 
 export interface IData {
   img: string;
-  desc: string;
 }
 
 interface ID3Img {
@@ -36,7 +35,6 @@ export default function D3Img({ error, data }: ID3Img) {
                     alt='Imagen seleccionada'
                     className='img'
                   />
-                  <div className='plate-desc'>{e.desc}</div>
                 </div>
               ))
             ) : (

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import Icon from "cp/icon/icon";
+import ShowEditBtn from "cp/configuration/show_edit_btn";
 // import { Inter } from 'next/font/google'
 import "./globals.css";
 
@@ -33,15 +34,15 @@ export default function RootLayout({
             <Image
               src='/restaurant.jpg'
               alt='Imagen del restaurante'
-              width={120}
-              height={70}
+              width={110}
+              height={65}
             />
           </Link>
-          <div>
+          {/*   <div>
             <Link href='/setting' className='op-menu'>
               <Icon>settings</Icon> setting
             </Link>
-          </div>
+          </div> */}
           <Link href='/bill' className='op-menu'>
             <Icon>receipt_long</Icon>
           </Link>

@@ -160,27 +160,27 @@ export default class Add {
 
       "Acompañamientos",
 
-      "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+      "https://recetasdeisabel.com/wp-content/uploads/2019/09/GUARNICIONES-CUATRO-RECETAS-F%C3%81CILES-PARA-CUALQUIER-PLATO-860-X-573-min-3.jpg",
     );
     const add2 = new Catalog(
       [],
       "Bebidas",
-      "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBO5VUHQXGzjEDvsKoGH9_JuP1qdK3xFe1Eg&usqp=CAU",
     );
     const add3 = new Catalog(
       [],
       "Entradas",
-      "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_Pi7I1OFLFbgBZ9XjSiGxtCbxiS1AuCfZ3Q&usqp=CAU",
     );
     const add4 = new Catalog(
       [],
       "Platos principales",
-      "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZgvPrELdOT6XjJKpUmFHAe1R8pl73uCqBCw&usqp=CAU",
     );
     const add5 = new Catalog(
       [],
       "Postre",
-      "https://www.diabetesfoodhub.org/system/user_files/Images/1837-diabetic-pecan-crusted-chicken-breast_JulAug20DF_clean-simple_061720.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoEJ5w7Sv2TYs2RMo9pgsYSajL7kta0-tw2g&usqp=CAU",
     );
 
     await daj.postAsync(add1);

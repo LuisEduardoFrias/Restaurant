@@ -5,30 +5,30 @@ import Icon from "../icon/icon";
 import { CSSProperties } from "react";
 
 export default function BackButton({
-    iconName,
-    className,
-    style,
-    id
+  iconName,
+  className,
+  style,
+  id,
 }: {
-    iconName?: string;
-    className?: string;
-    id?: string;
-    style?: CSSProperties;
+  iconName?: string;
+  className?: string;
+  id?: string;
+  style?: CSSProperties;
 }) {
-    const router = useRouter();
+  const router = useRouter();
 
-    const back = () => {
-        router.back();
-    };
+  const back = () => {
+    router.back();
+  };
 
-    return (
-        <button
-            className={`none-focus none-select ${className}`}
-            style={{ ...style }}
-            id={id}
-            onClick={back}
-        >
-            <Icon iconName={iconName ?? "reply_all"} />
-        </button>
-    );
+  return (
+    <button
+      className={`none-focus none-select ${className}`}
+      style={{ ...style }}
+      id={id}
+      onClick={back}
+    >
+      <Icon>{iconName ?? "reply_all"}</Icon>
+    </button>
+  );
 }

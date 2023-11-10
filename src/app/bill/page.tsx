@@ -29,12 +29,12 @@ export default async function Bill() {
           {!!bill &&
             bill.products.map((e, i) => (
               <div key={i}>
-                <img
+              { e?.img && <img
                   src={e.img}
                   alt='Imagen seleccionada'
                   width='100'
                   heigth='100'
-                />
+                />}
                 <label>{e.name}</label>
                 <label>{e.price}</label>
               </div>

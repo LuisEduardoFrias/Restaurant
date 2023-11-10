@@ -4,12 +4,12 @@
 }
 
 :root {
-  --text-color: black;
+  --text-color: white;
   --First: #134aff;
   --Second: #197eff;
   --Third: #7a99ff;
   --Fourth: #001c78;
-  --background: white;
+  --background: #000000;
 }
 
 body {
@@ -55,18 +55,13 @@ body {
 
 header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   height: 70px;
+  padding-right: 10px;
   box-sizing: border-box;
   background-color: rgb(213, 213, 213);
-  border-bottom: 3px solid rgb(213, 213, 213);
-  box-shadow: 1px 0 5px 4px rgb(213, 213, 213);
-}
-
-header div {
-  display: flex;
-  gap: 5px;
+  box-shadow: 1px 0 10px 10px white;
 }
 
 .edit-btn {

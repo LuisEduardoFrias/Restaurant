@@ -8,10 +8,11 @@ import Add from "ct/Add";
 import Catalog from "m/catalog";
 import Category from "m/category";
 import Plate from "m/plate";
+import RequestSystemType from "cp/configuration/request_system_type";
 
 function adacterRecomendations(re: Plate[]): IData[] {
   return re.map(e => {
-    return { desc: e.name, img: e.img };
+    return { img: e.img };
   }) as Plate[];
 }
 
@@ -35,6 +36,8 @@ export default async function Home() {
       <br />
       {!!plates && <D3Img data={adacterPlate} error={!!plates} />}
 
+      <RequestSystemType />
+
       <br />
 
       <Notification show={!!errorCat} />
@@ -55,10 +58,6 @@ export default async function Home() {
         ))}
       </div>
       <br />
-
-      <button className='edit-btn none-focus'>
-        <Icon>edit</Icon>
-      </button>
     </main>
   );
 }

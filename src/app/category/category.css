@@ -1,0 +1,61 @@
+.category-container {
+ padding-inline: 10px;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+}
+
+.category-title {
+ font-size: 20px;
+ font-weight: 900;
+ padding: 5px;
+}
+
+.category-plates {
+ display: flex;
+ padding-block: 10px;
+ flex-direction: row;
+}
+
+.category-btn {
+ display: grid;
+ grid-template-columns: 100px 1fr 100px;
+ grid-template-rows: 1fr;
+ grid-template-areas: 'img text price';
+ grid-column-gap: 5px;
+ padding: 5px;
+ margin-bottom: 5px;
+ background-color: #ffffff39;
+ backdrop-filter: blur(10px);
+ border: none;
+ box-shadow:
+    0 0 5px 1px var(--First),
+    inset 1px 0 3px 1px var(--Second),
+    inset 0 1px 3px 1px var(--Third);
+ border-radius: 5px 5px;
+ box-sizing: border-box;
+}
+
+.category-plate-img {
+ grid-area: img;
+ width: 100px;
+ height: 80px;
+ border-radius: 2.5px 0 0 2.5px;
+}
+
+
+.category-plate-text { 
+ align-self: center;
+ font-size: 15px;
+ font-weight: 900;
+}
+ 
+.category-plate-name {
+ grid-area: text;
+ justify-self: start;
+}
+
+.category-plate-price {
+ grid-area: price;
+ justify-self: end;
+}
