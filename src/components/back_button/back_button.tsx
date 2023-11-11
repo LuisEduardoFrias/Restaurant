@@ -28,7 +28,7 @@ export default function BackButton({
       id={id}
       onClick={back}
     >
-      <Icon>{iconName ?? "reply_all"}</Icon>
+      <Icon>{iconName ?? "keyboard_double_arrow_left"}</Icon>
     </button>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import Icon from "cp/icon/icon";
+import BackButton from "cp/back_button/back_button";
 import ShowEditBtn from "cp/configuration/show_edit_btn";
 // import { Inter } from 'next/font/google'
 import "./globals.css";
@@ -47,7 +48,20 @@ export default function RootLayout({
             <Icon>receipt_long</Icon>
           </Link>
         </header>
+        <main>
         {children}
+        </main>
+        <fooder>
+          <BackButton className='menu-btn back' />
+          <button className='menu-btn home'>
+            <Link href='/' style={{color:"black"}} >
+              <Icon>home</Icon>
+            </Link>
+          </button>
+          {/* <button className='menu-btn'>
+            <Icon>edit</Icon>
+          </button> */}
+        </fooder>
       </body>
     </html>
   );

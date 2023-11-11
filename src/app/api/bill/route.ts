@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import BillDA from "i/data_access";
+import {BillDA} from "i/data_access";
 import Bill from "m/bill";
 
 export async function POST(request: any) {

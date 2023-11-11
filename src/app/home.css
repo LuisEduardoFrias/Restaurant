@@ -1,4 +1,9 @@
-.catalogo {
+.catalog-title {
+  margin-left: 3%;
+  font-size: 30px;
+}
+
+.catalog {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -7,7 +12,7 @@
   align-items: center;
 }
 
-.menu-option {
+.catalog-option {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,7 +32,7 @@
   border-radius: 20px 20px;
 }
 
-.menu-option img {
+.catalog-option img {
   position: absolute;
   top: 5%;
   width: 90%;
@@ -35,12 +40,7 @@
   border-radius: 15px 15px 0 0;
 }
 
-.title-catalogo {
-  margin-left: 3%;
-  font-size: 30px;
-}
-
-.menu-option label {
+.catalog-option label {
   position: absolute;
   bottom: 5px;
   color: white;

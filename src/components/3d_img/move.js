@@ -1,6 +1,6 @@
-export default function Move(className) {
+export default function Move(className, className2) {
   const container = document.querySelector(`.${className}`);
-  const img = container.querySelectorAll(".box");
+  const img = container.querySelectorAll(`.${className2}`);
 
   let index = 0;
   setInterval(() => {

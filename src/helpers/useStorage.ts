@@ -1,4 +1,4 @@
-import { useState } from "react";
+//import { useState, useEffect } from "react";
 
 export default function useStorage() {
   const getData = (key: string) => {
@@ -22,31 +22,23 @@ export default function useStorage() {
 }
 
 /*
-import { useState } from "react";
-
-export default function useLocalStorage(key, initialValue) {
-  const [state, setState] = useState(() => {
-    try {
-      const value = window.localStorage.getItem(key);
-
-      return value ? JSON.parse(value) : initialValue;
-    } catch (error) {
-      console.log(error);
-    }
-  });
-
-  const setValue = value => {
-    try {
-      // If the passed value is a callback function,
-      //  then call it with the existing state.
-      const valueToStore = value instanceof Function ? value(state) : value;
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
-      setState(value);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  return [state, setValue];
+export default function useStorage(key, initialState) {
+ 
+  const [state, setState] = useState(initialState);
+  
+  useEffect(()=>{
+   const item = localStorage.getItem(key);
+   const data = JSON.parse(item);
+   if(data) {
+    setState(data);
+   }
+  },[]);
+  
+  useEffect(()=>{
+   localStorage.setItem(key,state);
+  },[state]);
+  
+  return [state,setState];
+  
 }
 */
