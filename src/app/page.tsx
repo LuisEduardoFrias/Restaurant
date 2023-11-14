@@ -18,7 +18,7 @@ export default async function Home() {
 
   return (
     <>
-      <RequestSystemType />
+     {/* <RequestSystemType /> */}
       <Notification show={!!errorCat} />
       <HomeClient plates={plates} catalogs={catalogs} />
     </>

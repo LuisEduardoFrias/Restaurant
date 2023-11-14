@@ -180,8 +180,8 @@
   width: 100px;
   padding: 0 6px;
   font-weight: bold;
-  background-color: #8b8b8b67;
-  border: 1px solid #8b8b8b67;
+  background-color: var(--Fiveth);
+  border: 1px solid var(--Fiveth);
   box-sizing: border-box;
   border-radius: 8px 8px;
 }

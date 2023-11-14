@@ -23,8 +23,7 @@ export default function useFetch(url: string) {
       const _data = await response.json();
 
       setIsLoader(false);
-
-      return _data;
+      return data;
     } catch (err) {
       setError({ isError: true, text: err });
     }

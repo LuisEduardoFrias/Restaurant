@@ -30,11 +30,18 @@ export default async function Bills() {
           <label className='bill-foo1'>Total</label>
           <label className='bill-foo2'>RD$ {bill.total?.toFixed(2)}</label>
         </div>
+        <br />
         <div className='bill-fooder'>
-          <button className='bill-btn none-seletc'>Realizar pedidos</button>
-          <button className='bill-btn none-seletc'>Realizar pago</button>
+          <button className='bill-btn none-select none-focus'>
+            Realizar pedidos
+          </button>
+          <button disabled className='bill-btn none-select none-focus'>
+            Realizar pago
+          </button>
         </div>
       </div>
+      <br />
+      <br />
     </>
   );
 }

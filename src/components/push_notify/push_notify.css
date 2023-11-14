@@ -1,9 +1,24 @@
 .puchNotify-container {
-  width: 150px;
-  height: 50px;
+  width: 160px;
+  height: 200px;
   position: absolute;
   top: 3px;
+  z-index: 9;
   left: calc(50% - 75px);
+  padding: 5px;
+  display: flex;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-direction: column;
+  gap: 3px;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.puchNotify {
+  width: 150px;
+  height: 50px;
   padding: 5px;
   display: flex;
   gap: 3px;

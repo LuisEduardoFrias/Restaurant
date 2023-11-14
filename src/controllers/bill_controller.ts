@@ -32,7 +32,7 @@ export default class BillController {
     }
     
     return {
-      bill: billfilter,
+      bill: billfilter[0],
       error: null,
     };
   }

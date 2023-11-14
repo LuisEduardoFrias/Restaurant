@@ -24,7 +24,7 @@
    "m/*": ["./src/models/*"],
    "ct/*": ["./src/controllers/*"],
    "cp/*": ["./src/components/*"],
-   "h/*": ["./src/helpers/*"]
+   "h/*": ["./src/hooks/*"]
   }
  },
  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

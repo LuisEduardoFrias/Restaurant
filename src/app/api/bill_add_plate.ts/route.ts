@@ -12,13 +12,16 @@ export async function POST(request: any) {
   console.log(client);
   console.log(JSON.stringify(plate));
 
-  const { bill, error } = (await new BillController().getInvoiceWithoutPaying(
+  /* const { bill, error } = (await new BillController().getInvoiceWithoutPaying(
     client,
   )) as {
     bill: Bill;
     error: string;
-  };
+  };*/
 
+  console.log(JSON.stringify(bill));
+  return { error: null, data: "success" };
+  /*
   if (bill) {
     bill.products = [...bill.products, ...plate];
     return NextResponse.json(await new BillDA().put(bill));
@@ -33,6 +36,7 @@ export async function POST(request: any) {
       ),
     );
   }
+  */
 }
 
 export async function PUT(request: any) {

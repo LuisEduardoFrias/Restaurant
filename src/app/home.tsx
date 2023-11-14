@@ -5,11 +5,11 @@ import Link from "next/link";
 import Plate from "m/plate";
 import Catalog from "m/catalog";
 import useFetch from "h/useFetch";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import D3Img, { IData } from "cp/3d_img/3d_img";
 import LdDualRing from "cp/id_dual_ring/id_dual_ring";
 import CatalogController from "ct/catalog_controller";
-import PushNotify, { TypeNotify } from "cp/push_notify/push_notify";
+import { usePushNotify, TypeNotify } from "cp/push_notify/push_notify";
 import NotificationCard, { ModalType } from "cp/notification/notificationCard";
 
 interface IHomeProps {
@@ -44,7 +44,7 @@ export default async function HomeClient({ plates, catalogs }: IHomeProps) {
 
 const AddBestPlate = ({ plates }: Plates) => {
   const [isloader, handleFetch, error] = useFetch("bill");
-  const [show, setShow] = useState(false);
+  const setPushNotify = usePushNotify();
   const [verify, setVerify] = useState({ show: false, data: null });
 
   const handleClick = (pla: Plate) => {
@@ -54,7 +54,7 @@ const AddBestPlate = ({ plates }: Plates) => {
   const handleClickNotify = (event: any) => {
     handleFetch({ plate: verify.data, client: "mesa 001" })
       .then(_data => {
-        setShow(true);
+        setPushNotify({ text: "Plate added", type: TypeNotify.post });
       })
       .catch(err => {
         console.error(err);
@@ -63,12 +63,6 @@ const AddBestPlate = ({ plates }: Plates) => {
 
   return (
     <>
-      <PushNotify
-        show={show}
-        text={"Plate added"}
-        type={TypeNotify.post}
-        setShow={setShow}
-      />
       <NotificationCard
         show={!!error.isError}
         setShow={(state: boolean) => {}}

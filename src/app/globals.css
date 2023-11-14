@@ -9,6 +9,7 @@
   --Second: #197eff;
   --Third: #7a99ff;
   --Fourth: #001c78;
+  --Fiveth: #d5d5d5;
   --background: #000000;
 }
 
@@ -45,7 +46,7 @@ main {
   justify-content: flex-start;
   align-items: center;
   text-decoration-line: none;
-  background-color: rgb(213, 213, 213);
+  background-color: var(--Fiveth);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -60,7 +61,7 @@ header {
   height: 70px;
   padding-right: 10px;
   box-sizing: border-box;
-  background-color: #d5d5d5;
+  background-color: var(--Fiveth);
   box-shadow: 1px 0 10px 10px white;
 }
 
@@ -148,7 +149,7 @@ header {
 
 .menu-btn {
   border: none;
-  background-color: #d5d5d5;
+  background-color: var(--Fiveth);
   display: flex;
   justify-content: center;
   align-items: center;
