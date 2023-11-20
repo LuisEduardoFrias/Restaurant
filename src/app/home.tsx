@@ -4,6 +4,7 @@ import "./home.css";
 import Link from "next/link";
 import Plate from "m/plate";
 import Catalog from "m/catalog";
+import useDateTime from "h/useDateTime";
 import useFetch from "h/useFetch";
 import { useState } from "react";
 import D3Img, { IData } from "cp/3d_img/3d_img";
@@ -45,6 +46,7 @@ export default async function HomeClient({ plates, catalogs }: IHomeProps) {
 const AddBestPlate = ({ plates }: Plates) => {
   const [isloader, handleFetch, error] = useFetch("bill");
   const setPushNotify = usePushNotify();
+  const [datetime] = useDateTime();
   const [verify, setVerify] = useState({ show: false, data: null });
 
   const handleClick = (pla: Plate) => {
@@ -54,7 +56,11 @@ const AddBestPlate = ({ plates }: Plates) => {
   const handleClickNotify = (event: any) => {
     handleFetch({ plate: verify.data, client: "mesa 001" })
       .then(_data => {
-        setPushNotify({ text: "Plate added", type: TypeNotify.post });
+        setPushNotify({
+          key: `post: ${datetime()}`,
+          text: "Plate added",
+          type: TypeNotify.post,
+        });
       })
       .catch(err => {
         console.error(err);

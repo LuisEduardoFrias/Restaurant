@@ -9,7 +9,6 @@ import ShowEditBtn from "cp/configuration/show_edit_btn";
 import "./globals.css";
 
 // const inter = Inter({ subsets: ['latin'] })
-
 export const metadata: Metadata = {
   title: "Restautant",
   description: "App for restaurants",

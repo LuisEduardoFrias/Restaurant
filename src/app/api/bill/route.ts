@@ -25,7 +25,8 @@ export async function POST(request: any) {
     error: string;
   };
 
-  console.log(JSON.stringify(bill, null, 2));
+  console.log("post");
+  // console.log(JSON.stringify(bill, null, 2));
 
   if (bill) {
     const _bill = Reflect.construct(Bill, [
@@ -56,4 +57,30 @@ export async function PUT(request: any) {
   obj.key = key;
 
   return NextResponse.json(await new BillDA().put(obj));
+}
+
+export async function DELETE(request: any) {
+  const { plate, client } = await request.json();
+
+  const BC = new BillController();
+
+  const { bill, error } = (await BC.getInvoiceWithoutPaying("mesa 001")) as {
+    bill: Bill;
+    error: string;
+  };
+
+  console.log("delete");
+  // console.log(JSON.stringify(bill, null, 2));
+
+  if (bill) {
+    const _bill = Reflect.construct(Bill, [
+      bill.products.filter(p => p.key !== plate.key),
+      bill.client,
+      false,
+    ]);
+
+    _bill.key = bill.key;
+
+    return NextResponse.json(await new BillDA().put(_bill));
+  }
 }

@@ -6,6 +6,7 @@ import CatalogController from "ct/catalog_controller";
 import RequestSystemType from "cp/configuration/request_system_type";
 
 export default async function Home() {
+
   const add = new Add();
   //add.postBill();
   //add.postCatalog();
@@ -18,7 +19,7 @@ export default async function Home() {
 
   return (
     <>
-     {/* <RequestSystemType /> */}
+      {/* <RequestSystemType /> */}
       <Notification show={!!errorCat} />
       <HomeClient plates={plates} catalogs={catalogs} />
     </>

@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import React, { useState } from "react";
 
 export default function useFetch(url: string) {
@@ -8,12 +7,12 @@ export default function useFetch(url: string) {
   const [isloader, setIsLoader] = useState(false);
   const [error, setError] = useState(init);
 
-  const handleFetch = async (data: object) => {
+  const handleFetch = async (data: object, method?: string) => {
     try {
-      setIsLoader(true);
+        setIsLoader(true);
 
       const response = await fetch(`api/${url}`, {
-        method: "POST",
+        method: method ?? "POST",
         headers: {
           "Content-Type": "application/json",
         },
@@ -22,10 +21,11 @@ export default function useFetch(url: string) {
 
       const _data = await response.json();
 
-      setIsLoader(false);
+       setIsLoader(false);
       return data;
     } catch (err) {
       setError({ isError: true, text: err });
+      
     }
   };
 

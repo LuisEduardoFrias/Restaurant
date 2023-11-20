@@ -11,12 +11,13 @@ export enum TypeNotify {
 }
 
 interface IPushNotifyProps {
+  keys: string;
   text: string;
   type: TypeNotify;
 }
 
 interface ICallBack {
-  callback?: () => void;
+  callback?: (value: string) => void;
 }
 
 // let timer: number = 10000;
@@ -33,19 +34,16 @@ export default function PushNotify({
     setNotify(prevNotify => [...prevNotify, obj]);
   };
 
+  function handleCallback(key: string) {
+    setNotify(prevNotify => prevNotify.filter(e => e.keys !== key));
+    // alert(JSON.stringify(notify))
+  }
+
   return (
     <>
       <div className='puchNotify-container'>
         {notify.map((n, i) => (
-          <Notify
-            key={i}
-            {...n}
-            callback={() => {
-              setNotify(prevNotify =>
-                prevNotify.filter((_, index) => index !== i),
-              );
-            }}
-          />
+          <Notify key={i} {...n} callback={handleCallback} />
         ))}
       </div>
       {children}
@@ -53,10 +51,12 @@ export default function PushNotify({
   );
 }
 
-function Notify({ text, type, callback }: IPushNotifyProps & ICallBack) {
+function Notify({ keys, text, type, callback }: IPushNotifyProps & ICallBack) {
   //
   useEffect(() => {
-    const timer = setTimeout(callback, 10000);
+    const timer = setTimeout(() => {
+      callback(keys);
+    }, 5000);
     return () => clearTimeout(timer);
   }, []);
 

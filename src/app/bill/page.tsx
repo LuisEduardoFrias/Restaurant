@@ -23,13 +23,7 @@ export default async function Bills() {
           <label className='bill-col1'>Productos</label>
           <label className='bill-col2'>Precios</label>
         </div>
-        <div className='bill-body'>
-          <Products data={bill.products} />
-        </div>
-        <div className='bill-fooder'>
-          <label className='bill-foo1'>Total</label>
-          <label className='bill-foo2'>RD$ {bill.total?.toFixed(2)}</label>
-        </div>
+        <Products data={bill} />
         <br />
         <div className='bill-fooder'>
           <button className='bill-btn none-select none-focus'>

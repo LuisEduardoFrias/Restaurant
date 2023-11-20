@@ -2,6 +2,7 @@
 import useFetch from "h/useFetch";
 import BackButton from "cp//back_button/back_button";
 import Icon from "cp/icon/icon";
+import useDateTime from "h/useDateTime";
 import Notification from "./notification";
 import Category from "m/category";
 import Link from "next/link";
@@ -13,6 +14,7 @@ import { useState } from "react";
 
 export default function Categpey({ categorys }: Category[]) {
   const setPushNotify = usePushNotify();
+  const [datetime] = useDateTime();
   const [isloader, handleFetch, _error] = useFetch("bill");
   const [verify, setVerify] = useState({ show: false, data: null });
 
@@ -23,7 +25,7 @@ export default function Categpey({ categorys }: Category[]) {
   const handleClickNotify = (event: any) => {
     handleFetch({ plate: verify.data, client: "mesa 001" })
       .then(_data => {
-        setPushNotify({ text: "Plate added", type: TypeNotify.post });
+        setPushNotify({           key: `post: ${datetime()}`,text: "Plate added", type: TypeNotify.post });
       })
       .catch(err => {
         console.error(err);
